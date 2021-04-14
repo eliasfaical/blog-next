@@ -1,1 +1,65 @@
-// TODO
+.contentHome {
+  padding: 2rem 0;
+
+  .container {
+    max-width: 730px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .itemPost {
+    margin: 0 0 3rem 0;
+    padding-bottom: 3rem;
+    color: #fff;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: .05);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .linkPost {
+      &:hover {
+        p {
+          color: #fff;
+        }
+        h1 {
+          color: var(--pink);
+        }
+      }
+    }
+
+    h1, p {
+      margin-bottom: .5rem;
+      transition: color 0.25s;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      color: #d7d7d7;
+      font-size: 1.2rem;
+    }
+
+    .dateAutor {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      span {
+        color: #BBB;
+        font-size: .9rem;
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: .4rem;
+        }
+      }
+    }
+  }
+}
