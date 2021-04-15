@@ -1,5 +1,5 @@
 .contentHome {
-  padding: 2rem 0;
+  padding-bottom: 2.5rem;
 
   .container {
     max-width: 730px;
@@ -7,11 +7,23 @@
     padding: 0 1rem;
   }
 
+  .linkMorePost {
+    color: var(--pink);
+    font-weight: 700;
+    background: none;
+    border: 0;
+    transition: color 0.25s;
+
+    &:hover {
+      color: #d7d7d7;
+    }
+  }
+
   .itemPost {
     margin: 0 0 3rem 0;
     padding-bottom: 3rem;
     color: #fff;
-    border-bottom: 1px solid rgba($color: #fff, $alpha: .05);
+    border-bottom: 1px solid rgb(255 255 255 / 4%);
 
     &:last-child {
       border-bottom: 0;
@@ -35,12 +47,12 @@
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.65rem;
+      line-height: 1.25;
     }
 
     p {
       color: #d7d7d7;
-      font-size: 1.2rem;
     }
 
     .dateAutor {

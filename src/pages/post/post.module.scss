@@ -1,1 +1,44 @@
-// TODO
+.contentHome {
+  padding-bottom: 2.5rem;
+
+  .container {
+    max-width: 730px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .itemPost {
+    color: #fff;
+
+    h1 {
+      font-size: 2.4rem;
+      line-height: 1.25;
+    }
+
+    p {
+      color: #d7d7d7;
+      font-size: 1rem;
+    }
+
+    .dateAutor {
+      margin: 1rem 0 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgb(255 255 255 / 4%);
+
+      span {
+        color: #BBB;
+        font-size: .9rem;
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: .4rem;
+        }
+      }
+    }
+  }
+}
