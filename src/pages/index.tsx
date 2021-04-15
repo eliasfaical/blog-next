@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
@@ -27,11 +28,31 @@ interface PostPagination {
 }
 
 interface HomeProps {
-  // posts: PostPagination;
-  posts: Post[];
+  postsPagination: PostPagination;
 }
 
-export default function Home({ posts }: HomeProps) {
+export default function Home({ postsPagination }: HomeProps) {
+  const [posts, setPosts] = useState<Post[]>(postsPagination.results);
+
+  async function handleMorePosts() {
+    await fetch(postsPagination.next_page)
+      .then(data => data.json())
+      .then(response => {
+        const postsResponse = response.results.map(post => {
+          return {
+            uid: post.uid,
+            data: {
+              title: post.data.title,
+              subtitle: post.data.subtitle,
+              author: post.data.author,
+            },
+            first_publication_date: post.first_publication_date,
+          };
+        });
+        setPosts([...postsResponse, ...posts]);
+      });
+  }
+
   return (
     <>
       <Head>
@@ -65,6 +86,14 @@ export default function Home({ posts }: HomeProps) {
               </Link>
             </article>
           ))}
+
+          <button
+            onClick={handleMorePosts}
+            type="button"
+            className={styles.linkMorePost}
+          >
+            Carregar mais posts
+          </button>
         </div>
       </section>
     </>
@@ -96,7 +125,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      posts,
+      postsPagination: {
+        next_page: postsResponse.next_page,
+        results: posts,
+      },
     },
+    revalidate: 60 * 60 * 24, // 24 hours
   };
 };
