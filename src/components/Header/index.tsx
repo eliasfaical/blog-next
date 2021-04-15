@@ -6,9 +6,7 @@ export default function Header() {
     <header className={styles.siteHeader}>
       <div className={styles.container}>
         <Link href="/">
-          <a title="Spacetraveling">
-            <img src="/images/logo.svg" alt="Spacetraveling" />
-          </a>
+          <img src="/images/logo.svg" alt="Spacetraveling" />
         </Link>
       </div>
     </header>
